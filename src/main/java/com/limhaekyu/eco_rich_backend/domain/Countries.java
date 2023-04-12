@@ -24,5 +24,5 @@ public class Countries {
 
     // ManyToOne??
     @Column(name = "regions_id")
-    private int region_id;
+    private int regionId;
 }
