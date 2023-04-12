@@ -5,7 +5,7 @@ import com.limhaekyu.eco_rich_backend.dto.DepartmentAndLocationDto;
 import com.limhaekyu.eco_rich_backend.dto.HistoryOfEmployeeDto;
 import com.limhaekyu.eco_rich_backend.dto.UpdateEmployeeInfoDto;
 import com.limhaekyu.eco_rich_backend.service.EmployeesService;
-import com.limhaekyu.eco_rich_backend.service.JobHistoyService;
+import com.limhaekyu.eco_rich_backend.service.JobHistoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,13 +19,13 @@ import java.util.List;
 public class EmployeesController {
 
     private final EmployeesService employeesService;
-    private final JobHistoyService jobHistoyService;
+    private final JobHistoryService jobHistoryService;
 
     /*
         특정 직원 현재 정보 조회 API
     */
     @GetMapping("/{employee_id}")
-    public ResponseEntity<CurrentEmployeeInfoDto> findCurrentEmployeeInfo(@PathVariable(name = "employee_id") int employeeId) {
+    public ResponseEntity<CurrentEmployeeInfoDto> findCurrentEmployeeInfo(@PathVariable(name = "employee_id") Long employeeId) {
         CurrentEmployeeInfoDto currentEmployeeInfo = employeesService.findCurrentInfo(employeeId);
         return ResponseEntity.ok(currentEmployeeInfo);
     }
@@ -34,8 +34,8 @@ public class EmployeesController {
         특정 직원 이력 조회 API
     */
     @GetMapping("/{employee_id}/history")
-    public ResponseEntity<List<HistoryOfEmployeeDto>> findHistoryOfEmployee(@PathVariable(name = "employee_id") int employeeId) {
-        List<HistoryOfEmployeeDto> historyOfEmployee = jobHistoyService.findHistory(employeeId);
+    public ResponseEntity<List<HistoryOfEmployeeDto>> findHistoryOfEmployee(@PathVariable(name = "employee_id") Long employeeId) {
+        List<HistoryOfEmployeeDto> historyOfEmployee = jobHistoryService.findHistory(employeeId);
         return ResponseEntity.ok(historyOfEmployee);
     }
 
@@ -43,7 +43,7 @@ public class EmployeesController {
         특정 직원 부서 및 위치 정보 조회 API
     */
     @GetMapping("/{employee_id}/department")
-    public ResponseEntity<DepartmentAndLocationDto> findDepartmentAndLocation(@PathVariable(name = "employee_id") int employeeId) {
+    public ResponseEntity<DepartmentAndLocationDto> findDepartmentAndLocation(@PathVariable(name = "employee_id") Long employeeId) {
         DepartmentAndLocationDto departmentAndLocation = employeesService.findDepartmentAndLocation(employeeId);
         return ResponseEntity.ok(departmentAndLocation);
     }
@@ -52,7 +52,7 @@ public class EmployeesController {
         특정 직원 정보 업데이트 API
     */
     @PatchMapping("/{employee_id}")
-    public void updateEmployeeInfo(@PathVariable(name = "employee_id") int employeeId, @RequestBody UpdateEmployeeInfoDto updateEmployeeInfo) {
+    public void updateEmployeeInfo(@PathVariable(name = "employee_id") Long employeeId, @RequestBody UpdateEmployeeInfoDto updateEmployeeInfo) {
         employeesService.updateInfo(employeeId, updateEmployeeInfo);
     }
 
@@ -60,7 +60,7 @@ public class EmployeesController {
         특정 부서 급여 특정 비율로 인상 API - 우선 url에 정보포함, post
     */
     @PostMapping("/department/{department_id}")
-    public void increaseSalary(@PathVariable(name = "department_id") int departmentId, @RequestParam BigDecimal increaseRate) {
+    public void increaseSalary(@PathVariable(name = "department_id") Long departmentId, @RequestParam BigDecimal increaseRate) {
         employeesService.increaseSalaryOfDepartment(departmentId, increaseRate);
     }
 }

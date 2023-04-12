@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Builder
 public class LocationInfoDto {
-    private int locationId;
+    private Long locationId;
     private String streetAddress;
     private String postalCode;
     private String city;
@@ -18,6 +18,6 @@ public class LocationInfoDto {
 
     private char countryId;
     private String countryName;
-    private int region_id;
+    private Long region_id;
     private String regionName;
 }

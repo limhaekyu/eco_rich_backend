@@ -4,6 +4,6 @@ import com.limhaekyu.eco_rich_backend.dto.HistoryOfEmployeeDto;
 
 import java.util.List;
 
-public interface JobHistoyService {
-    List<HistoryOfEmployeeDto> findHistory(int employeeId);
+public interface JobHistoryService {
+    List<HistoryOfEmployeeDto> findHistory(Long employeeId);
 }
