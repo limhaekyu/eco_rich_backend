@@ -18,5 +18,5 @@ public class HistoryOfEmployeeDto {
 
     private String jobId;
 
-    private int departmentId;
+    private Long departmentId;
 }

@@ -12,20 +12,37 @@ import java.math.BigDecimal;
 @Getter
 @Builder
 public class CurrentEmployeeInfoDto {
-    private int employeeId;
+    // employees
+    private Long employeeId;
     private String jobId;
-    private int managerId;
-    private int departmentId;
-    private int locationId;
+    private Long managerId;
+    private Long departmentId;
+
+    // departments
+    private Long locationId;
+
+    // locations
     private char countryId;
+
+    // employees
     private String firstName;
     private String lastName;
     private BigDecimal salary;
     private BigDecimal commissionPct;
+
+    // departments
     private String departmentName;
+
+    // jobs
     private String jobTitle;
+
+    // locations
     private String city;
     private String stateProvince;
+
+    // countries
     private String countryName;
+
+    // regions
     private String regionName;
 }

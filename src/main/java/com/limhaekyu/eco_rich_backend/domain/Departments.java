@@ -17,17 +17,17 @@ import javax.persistence.Table;
 public class Departments {
     @Id
     @Column(name = "department_id")
-    private int departmentId;
+    private Long departmentId;
 
     @Column(name = "department_name")
     private String departmentName;
 
     // 연관관계???
     @Column(name = "manager_id")
-    private int managerId;
+    private Long managerId;
 
     // 연관관계?
     @Column(name = "location_id")
-    private int locationId;
+    private Long locationId;
 
 }

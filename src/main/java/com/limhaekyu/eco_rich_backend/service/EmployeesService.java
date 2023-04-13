@@ -8,11 +8,11 @@ import java.math.BigDecimal;
 
 public interface EmployeesService {
 
-    CurrentEmployeeInfoDto findCurrentInfo(int employeeId);
+    CurrentEmployeeInfoDto findCurrentInfo(Long employeeId);
 
-    DepartmentAndLocationDto findDepartmentAndLocation(int employeeId);
+    DepartmentAndLocationDto findDepartmentAndLocation(Long employeeId);
 
-    void updateInfo(int employeeId, UpdateEmployeeInfoDto updateEmployeeInfo);
+    void updateInfo(Long employeeId, UpdateEmployeeInfoDto updateEmployeeInfo);
 
-    void increaseSalaryOfDepartment(int departmentId, BigDecimal increaseRate);
+    void increaseSalaryOfDepartment(Long departmentId, BigDecimal increaseRate);
 }

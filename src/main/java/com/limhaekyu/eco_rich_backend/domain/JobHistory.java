@@ -18,7 +18,7 @@ import java.sql.Date;
 public class JobHistory {
     @Id
     @Column(name = "employee_id")
-    private int employeeId;
+    private Long employeeId;
 
     @Column(name = "start_date")
     private Date startDate;
@@ -30,5 +30,5 @@ public class JobHistory {
     private String jobId;
 
     @Column(name = "department_id")
-    private int departmentId;
+    private Long departmentId;
 }

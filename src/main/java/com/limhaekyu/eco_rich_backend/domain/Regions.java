@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Regions {
     @Id
     @Column(name = "regions_id")
-    private int regionId;
+    private Long regionId;
 
     @Column(name = "regions_name")
     private String region_name;

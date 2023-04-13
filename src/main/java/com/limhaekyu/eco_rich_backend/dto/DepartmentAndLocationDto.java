@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class DepartmentAndLocationDto {
 
-    private int departmentId;
+    private Long departmentId;
     private String departmentName;
-    private int managerId;
+    private Long managerId;
     private LocationInfoDto locationInfo;
 }

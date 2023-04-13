@@ -19,7 +19,7 @@ import java.sql.Date;
 public class Employees {
     @Id
     @Column(name = "employee_id")
-    private int employeeId;
+    private Long employeeId;
 
     @Column(name = "first_name")
     private String firstName;
@@ -48,9 +48,9 @@ public class Employees {
 
     // 관계?
     @Column(name = "manager_id")
-    private int managerId;
+    private Long managerId;
 
     // 관계?
     @Column(name = "department_id")
-    private int departmentId;
+    private Long departmentId;
 }

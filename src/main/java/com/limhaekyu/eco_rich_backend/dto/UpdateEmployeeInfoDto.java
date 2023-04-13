@@ -16,5 +16,5 @@ public class UpdateEmployeeInfoDto {
     private String phoneNumber;
     private BigDecimal salary;
     private BigDecimal commissionPct;
-    private int departmentId;
+    private Long departmentId;
 }
