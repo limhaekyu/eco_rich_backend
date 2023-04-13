@@ -7,6 +7,7 @@ import com.limhaekyu.eco_rich_backend.dto.UpdateEmployeeInfoDto;
 import com.limhaekyu.eco_rich_backend.service.EmployeesService;
 import com.limhaekyu.eco_rich_backend.service.JobHistoryService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,6 +37,9 @@ public class EmployeesController {
     @GetMapping("/{employee_id}/history")
     public ResponseEntity<List<HistoryOfEmployeeDto>> findHistoryOfEmployee(@PathVariable(name = "employee_id") Long employeeId) {
         List<HistoryOfEmployeeDto> historyOfEmployee = jobHistoryService.findHistory(employeeId);
+        if (historyOfEmployee.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        }
         return ResponseEntity.ok(historyOfEmployee);
     }
 

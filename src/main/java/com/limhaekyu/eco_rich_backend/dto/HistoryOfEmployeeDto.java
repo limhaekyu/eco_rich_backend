@@ -13,10 +13,7 @@ import java.sql.Date;
 @Builder
 public class HistoryOfEmployeeDto {
     private Date startDate;
-
     private Date endDate;
-
     private String jobId;
-
     private Long departmentId;
 }
