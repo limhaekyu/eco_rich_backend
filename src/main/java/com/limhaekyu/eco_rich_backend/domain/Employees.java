@@ -1,8 +1,10 @@
 package com.limhaekyu.eco_rich_backend.domain;
 
+import com.limhaekyu.eco_rich_backend.dto.UpdateEmployeeInfoDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -53,4 +55,28 @@ public class Employees {
     // 관계?
     @Column(name = "department_id")
     private Long departmentId;
+
+    public void updateInfo(UpdateEmployeeInfoDto updateEmployeeInfo) {
+        if (StringUtils.hasText(updateEmployeeInfo.getFirstName())) {
+            this.firstName = updateEmployeeInfo.getFirstName();
+        }
+        if (StringUtils.hasText(updateEmployeeInfo.getLastName())) {
+            this.lastName = updateEmployeeInfo.getLastName();
+        }
+        if (StringUtils.hasText(updateEmployeeInfo.getEmail())) {
+            this.email = updateEmployeeInfo.getEmail();
+        }
+        if (StringUtils.hasText(updateEmployeeInfo.getPhoneNumber())) {
+            this.phoneNumber = updateEmployeeInfo.getPhoneNumber();
+        }
+        if (StringUtils.hasText(String.valueOf(updateEmployeeInfo.getSalary()))) {
+            this.salary = updateEmployeeInfo.getSalary();
+        }
+        if (StringUtils.hasText(String.valueOf(updateEmployeeInfo.getCommissionPct()))) {
+            this.commissionPct = updateEmployeeInfo.getCommissionPct();
+        }
+        if (StringUtils.hasText(String.valueOf(updateEmployeeInfo.getDepartmentId()))) {
+            this.departmentId = updateEmployeeInfo.getDepartmentId();
+        }
+    }
 }
