@@ -79,4 +79,8 @@ public class Employees {
             this.departmentId = updateEmployeeInfo.getDepartmentId();
         }
     }
+
+    public void increaseSalary(BigDecimal increaseRate) {
+        this.salary = this.salary.multiply(increaseRate);
+    }
 }

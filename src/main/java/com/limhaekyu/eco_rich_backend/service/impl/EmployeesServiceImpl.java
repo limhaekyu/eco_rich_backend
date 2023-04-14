@@ -4,6 +4,7 @@ import com.limhaekyu.eco_rich_backend.domain.EmpDetailsView;
 import com.limhaekyu.eco_rich_backend.domain.Employees;
 import com.limhaekyu.eco_rich_backend.dto.CurrentEmployeeInfoDto;
 import com.limhaekyu.eco_rich_backend.dto.DepartmentAndLocationDto;
+import com.limhaekyu.eco_rich_backend.dto.IncreaseSalaryOfDepartmentDto;
 import com.limhaekyu.eco_rich_backend.dto.UpdateEmployeeInfoDto;
 import com.limhaekyu.eco_rich_backend.mapper.EmpDetailsViewMapper;
 import com.limhaekyu.eco_rich_backend.repository.EmpDetailsViewRepository;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -50,9 +52,20 @@ public class EmployeesServiceImpl implements EmployeesService {
         }
     }
 
-    @Override
-    public void increaseSalaryOfDepartment(Long departmentId, BigDecimal increaseRate) {
+    /*
+        - departmentId, increaseRate
+        1. Employees 중 해당 departmentId 가진사람 조회
+        2. increaseRate 적용해서 salary 상승
+        3. 저장 saveAll();
+    */
 
+    @Override
+    public void increaseSalaryOfDepartment(IncreaseSalaryOfDepartmentDto increaseSalaryOfDepartment) {
+        List<Employees> employees = employeesRepository.findAllByDepartmentId(increaseSalaryOfDepartment.getDepartmentId());
+        employees.forEach(employee -> {
+            employee.increaseSalary(increaseSalaryOfDepartment.getIncreaseRate());
+        });
+        employeesRepository.saveAll(employees);
     }
 
     private Employees findEmploy(Long employeeId) {
