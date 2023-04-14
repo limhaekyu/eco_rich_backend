@@ -1,9 +1,6 @@
 package com.limhaekyu.eco_rich_backend.controller;
 
-import com.limhaekyu.eco_rich_backend.dto.CurrentEmployeeInfoDto;
-import com.limhaekyu.eco_rich_backend.dto.DepartmentAndLocationDto;
-import com.limhaekyu.eco_rich_backend.dto.HistoryOfEmployeeDto;
-import com.limhaekyu.eco_rich_backend.dto.UpdateEmployeeInfoDto;
+import com.limhaekyu.eco_rich_backend.dto.*;
 import com.limhaekyu.eco_rich_backend.service.EmployeesService;
 import com.limhaekyu.eco_rich_backend.service.JobHistoryService;
 import lombok.RequiredArgsConstructor;
@@ -63,8 +60,8 @@ public class EmployeesController {
     /*
         특정 부서 급여 특정 비율로 인상 API - 우선 url에 정보포함, post
     */
-    @PostMapping("/department/{department_id}")
-    public void increaseSalary(@PathVariable(name = "department_id") Long departmentId, @RequestParam BigDecimal increaseRate) {
-        employeesService.increaseSalaryOfDepartment(departmentId, increaseRate);
+    @PostMapping("/increase-salary")
+    public void increaseSalary(@RequestBody IncreaseSalaryOfDepartmentDto increaseSalaryOfDepartment) {
+        employeesService.increaseSalaryOfDepartment(increaseSalaryOfDepartment);
     }
 }
