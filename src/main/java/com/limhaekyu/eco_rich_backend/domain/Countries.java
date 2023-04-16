@@ -23,6 +23,6 @@ public class Countries {
     private String countryName;
 
     // ManyToOne??
-    @Column(name = "regions_id")
+    @Column(name = "region_id")
     private Long regionId;
 }

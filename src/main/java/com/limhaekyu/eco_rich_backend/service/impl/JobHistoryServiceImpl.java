@@ -23,8 +23,7 @@ public class JobHistoryServiceImpl implements JobHistoryService {
         if(!isExistEmployee(employeeId)) {
             throw new IllegalArgumentException("존재하지 않은 직원 ID 입니다.");
         }
-        List<JobHistory> jobHistories = jobHistoryRepository.findAllByEmployeeId(employeeId).orElseThrow(()->new IllegalArgumentException("해당 직원의 이력이 없습니다."));
-        return JobHistoryMapper.INSTANCE.toDtoList(jobHistories);
+        return jobHistoryRepository.findJobHistory(employeeId);
     }
 
     private boolean isExistEmployee(Long employeeId) {
