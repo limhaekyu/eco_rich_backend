@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Locations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "locations_id")
+    @Column(name = "location_id")
     private Long locationId;
 
     @Column(name = "street_address")
