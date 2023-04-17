@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/hr?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/hr?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
     password: 123456789
 
@@ -25,3 +25,8 @@ logging:
   level:
     org.hibernate.sql: debug
     org.hibernate.type: trace
+
+public:
+  data:
+    url: http://apis.data.go.kr/1471000/MdeqPrdlstInfoService02/getMdeqPrdlstInfoInq02
+    service-key: Ujzxi4mq%2Bo4u9495Jv1n7NcOTw0XXFPg6spEGjj2pUCUbvgtxYmtbk0t%2FABsaqWcSxQ163l1PosEg46KQchWpg%3D%3D
