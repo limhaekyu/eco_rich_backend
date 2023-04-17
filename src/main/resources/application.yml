@@ -25,3 +25,8 @@ logging:
   level:
     org.hibernate.sql: debug
     org.hibernate.type: trace
+
+public:
+  data:
+    url: http://apis.data.go.kr/1471000/MdeqPrdlstInfoService02/getMdeqPrdlstInfoInq02
+    service-key: Ujzxi4mq%2Bo4u9495Jv1n7NcOTw0XXFPg6spEGjj2pUCUbvgtxYmtbk0t%2FABsaqWcSxQ163l1PosEg46KQchWpg%3D%3D
